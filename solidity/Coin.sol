@@ -64,7 +64,9 @@ contract Coin {
     function queryBalance(address addr) constant returns (uint balance) {
         return balances[addr];
     }
-
+ 
+    // destroy the whole smart contract and make it unusable whenever you want
+    // this can only be killed by the minter, who is the owner of the smart contract
     function killCoin() returns (bool status) {
         if (msg.sender != minter) throw;
         selfdestruct(minter);

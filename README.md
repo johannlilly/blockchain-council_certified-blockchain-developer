@@ -25,3 +25,10 @@ EVM is a programmable blockchain. Instead of having pre-defined operations, like
 1. Smart Contract Code - the code that is stored, verified and executed on a blockchain
 2. Smart Legal Contracts - the use of the smart contract code that can be used as a complement, or substitute, for legal contracts.
 
+Code is what goes into the Smart Contract. 
+
+#### Distributed Ledger
+
+This is how the smart contract is sent out to everyone in the network. The code is then encrypted and sent out to other computers via a distributed network of ledgers (i.e. Distributed Ledgers). If this is done via public permissionless blockchain such as bitcoin, the contract is sent out similar to the way that a network update of a bitcoin transaction would occur. 
+
+### ICO - Whata is Initial Coin Offering

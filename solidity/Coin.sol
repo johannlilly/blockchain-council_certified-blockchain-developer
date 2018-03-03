@@ -6,6 +6,7 @@ pragma solidity 0.4.8;
 // contract is the first line.
 // think of it like a class, where Coin here is the coin name.
 contract Coin {
+    // define metadata
     /*
     * @title A Simple Subcurrency Example
     * @author Toshendra Sharma
@@ -13,7 +14,6 @@ contract Coin {
     * @dev This is only for demo the simple Coin example
     *
     */
-    // define variables
     address public minter;
     uint public totalCoins;
 

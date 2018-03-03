@@ -32,6 +32,9 @@ contract Coin {
         balances[minter] = initialCoins;
     }
 
+    // define a function mint()
+    // think of "mint" like minting new coinage for use in circulation
+    // here, the owner of the contract can add Coins to the owner
     /// @notice Mint the coins
     /// @dev This does not return any value
     /// @param owner address of the coin owner, amount amount of coins to be delivered to owner

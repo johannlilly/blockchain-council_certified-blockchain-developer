@@ -35,7 +35,16 @@ This is how the smart contract is sent out to everyone in the network. The code 
 
 A cryptocurrency version of an IPO. It is also known as a crowdsale. To use the newly created technology/product/platform, some virtual tokens are required. Tokens represent the cost of using the platform. These tokens are issued during the ICO in exchange of some cryptocurrencies like Bitcoin, Ethereum, etc.
 
+> https://www.ico-list.com/
 
+### ICO - How it works
 
+1. Have an idea. Cryptocurrency tokens are required. They represent the cost of transacting on the new platform. They provide the fuel. 
+2. The announcement. Explain the problem and how it will be solved. Typically, use a whitepaper.
+3. Specify the capital target.
+4. Allocate pre-mined tokens (founders, initial investors, crowdsale).
+5. Specify the timeline, from announcement to collection to launch.
+6. Issue tokens.
+7. Sell tokens on exchanges, potentially allow mining.
 
 

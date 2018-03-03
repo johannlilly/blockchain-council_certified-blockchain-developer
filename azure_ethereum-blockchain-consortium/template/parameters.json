@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "namePrefix": {
+            "value": "test-"
+        },
+        "adminUsername": {
+            "value": "ubuntu"
+        },
+        "authType": {
+            "value": "password"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "ethereumNetworkID": {
+            "value": 458256460
+        },
+        "ethereumAccountPsswd": {
+            "value": null
+        },
+        "ethereumAccountPassphrase": {
+            "value": null
+        },
+        "numConsortiumMembers": {
+            "value": 3
+        },
+        "numMiningNodesPerMember": {
+            "value": 3
+        },
+        "mnNodeVMSize": {
+            "value": "Standard_A1"
+        },
+        "mnStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "numTXNodes": {
+            "value": 1
+        },
+        "txNodeVMSize": {
+            "value": "Standard_A1"
+        },
+        "txStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "location": {
+            "value": "westeurope"
+        }
+    }
+}

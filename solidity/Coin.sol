@@ -22,6 +22,9 @@ contract Coin {
     event LogCoinsMinted(address deliveredTo, uint amount);
     event LogCoinsSent(address sentTo, uint amount);
 
+    // define mapping (mapping applies a function to all elements of an array or some iterative object)
+    // you pass the address and the value inside it
+    // that value will become the number of coins available inside that address
     mapping (address => uint) balances;
     function Coin(uint initialCoins) {
         minter = msg.sender;

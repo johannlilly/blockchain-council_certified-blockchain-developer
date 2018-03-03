@@ -1,8 +1,10 @@
-// define most recent compatability
+// define most recent compatability for the compiler
 pragma solidity 0.4.8;
 
 // the owner of this contract can add Coin to anyone's account
 
+// contract is the first line.
+// think of it like a class, where Coin here is the coin name.
 contract Coin {
     /*
     * @title A Simple Subcurrency Example
@@ -11,6 +13,7 @@ contract Coin {
     * @dev This is only for demo the simple Coin example
     *
     */
+    // define variables
     address public minter;
     uint public totalCoins;
 

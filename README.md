@@ -53,6 +53,34 @@ DAO stands for Decentralized Autonomous Organization or Decentralized Democratic
 
 Hacking a DAO is like hacking a blockchain. It is difficult. 
 
+### DAO - Structure and How it works
+
+#### Typical organization structure
+
+An organization is the group of people working on a common interest. An organization has the group of shareholders who represent the ownership of the organization in the percentage format. Share holders appoint a Board of Directors who control the major key decision of the organization. Board of Directors appoints the CEO. The rules & regulations f running the organization are generally written in Bylaws or Memorandum or Article, Article of Association. This might be called something else in your country.
+
+The platform where the DAO runs is called a blockchain. Each action or vote is represented by some form of transaction in the Blockchain. Every action must originate from an address. An address can be owned by anyone or anything running the software. Membership may or may not be represented by the DAO token, aka the cryptotoken. Voting can be configured where 1 token = 1 share. Yes or no.
+
+#### Decision making
+
+Each member will have the right to submit the proposal to take certain decisions. These decisions can be, for example:
+- Fire the CEO
+- Change the CEO
+- Hire a vendor for their service
+- Hire a lawyer
+- Pay certain amount of ether/USD to someone as a salary or bonus
+- Issue the sahre to someone because that person/address is adding more value
+
+#### Vote delegation
+
+Voting power can be optionally delegated to someone. This is just like voting by proxy in the real organization. 
+
+#### Fund raising
+
+The DAO can also raise funds through crowd sourced funding. This payment and issuing the shares/token can be done in real time. Shares can be exchanged or sold by the members without any approval from the DAO. 
+
+> https://coinmarketcap.com/assets/views/all/
+> https://digix.global/
 
 
 

@@ -31,4 +31,11 @@ Code is what goes into the Smart Contract.
 
 This is how the smart contract is sent out to everyone in the network. The code is then encrypted and sent out to other computers via a distributed network of ledgers (i.e. Distributed Ledgers). If this is done via public permissionless blockchain such as bitcoin, the contract is sent out similar to the way that a network update of a bitcoin transaction would occur. 
 
-### ICO - Whata is Initial Coin Offering
+### ICO - What is Initial Coin Offering
+
+A cryptocurrency version of an IPO. It is also known as a crowdsale. To use the newly created technology/product/platform, some virtual tokens are required. Tokens represent the cost of using the platform. These tokens are issued during the ICO in exchange of some cryptocurrencies like Bitcoin, Ethereum, etc.
+
+
+
+
+

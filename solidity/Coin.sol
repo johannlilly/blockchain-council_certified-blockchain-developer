@@ -60,7 +60,7 @@ contract Coin {
         LogCoinsSent(receiver, amount);
     }
 
-    // anyone can check the balance
+    // the value returned will be the balance, a constant
     function queryBalance(address addr) constant returns (uint balance) {
         return balances[addr];
     }

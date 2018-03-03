@@ -82,5 +82,13 @@ The DAO can also raise funds through crowd sourced funding. This payment and iss
 > https://coinmarketcap.com/assets/views/all/
 > https://digix.global/
 
+### DAO - Security of DAO
+
+Bylaws are immutably written in code & running on Blockchain. It is almost impossible to corrupt or alter ther rules. Decentralized architecture makes it more safe.
+
+#### Secruity problems
+
+Your code will be open to the public. Since what is released is not editable, it is very difficult to fix a bug. Hackers can exploit this easily. Fixing a bug needs more time and effor than traditional software. With auditing, you can reduce the risk of bugs in your code. You can do a soft run on the test network before release.
+
 
 

@@ -43,13 +43,20 @@ contract Coin {
         if (msg.sender != minter) return;
         balances[owner] += amount;
         totalCoins += amount;
+        // log that the person has received coins, so that others node can listen 
         LogCoinsMinted(owner, amount);
     }
 
+    // define function send()
+    // send any amount of coins to the receiver
     function send(address receiver, uint amount) {
+        // check that the sender has enough to send
         if (balances[msg.sender] < amount) return;
+        // deduct amount from the sender
         balances[msg.sender] -= amount;
+        // add the amount to the receiver
         balances[receiver] += amount;
+        // log that the person has received coins, so that others node can listen 
         LogCoinsSent(receiver, amount);
     }
 

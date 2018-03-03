@@ -47,4 +47,12 @@ A cryptocurrency version of an IPO. It is also known as a crowdsale. To use the 
 6. Issue tokens.
 7. Sell tokens on exchanges, potentially allow mining.
 
+### DAO - What is DAO
+
+DAO stands for Decentralized Autonomous Organization or Decentralized Democratic Organization. It is sometimes referred to as DAC. It is a Democratic Organization running on Blockcahin. Everything exists in memory running on the servers on the netowrk. All the rules are written in the programming language. It can behave as a private limited or a public limited company if rules are created properly. The related tokens can represent the shares of teh DAO. Token holders, also known as share holders, can vote on the proposals. Shares can be bought or sold in open markets like stock exchanges. Hundreds of things can be done. Transferring shares can transfer ownership just like transferring a token.
+
+Hacking a DAO is like hacking a blockchain. It is difficult. 
+
+
+
 

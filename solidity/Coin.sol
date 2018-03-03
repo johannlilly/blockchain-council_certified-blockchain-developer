@@ -14,6 +14,7 @@ contract Coin {
     * @dev This is only for demo the simple Coin example
     *
     */
+    // define variables
     address public minter;
     uint public totalCoins;
 

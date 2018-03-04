@@ -19,7 +19,7 @@ contract admined {
 
 }
 
-contract TCoin is admined {
+contract TCoin {
 
 	mapping (address => uint256) public balanceOf;
 	mapping (address => mapping (address => uint256)) public allowance;
@@ -62,3 +62,9 @@ contract TCoin is admined {
 		return true;
 	}
 }
+
+contract TCoinAdvanced is admined, TCoin{
+
+}
+
+

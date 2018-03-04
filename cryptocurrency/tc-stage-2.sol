@@ -15,6 +15,8 @@ contract TCoin {
 	uint8 public decimal; // for Ethereum, it is 18
 	// define a variable for the total supply of coins that can be in existence
 	uint256 public totalSupply;
+	// define a variable so we can later notify participants in a transaction
+	event Transfer(address indexed from, address indexed to, uint256 value); // store in log memory, not contract data
 
 	// because this is a constructor, these parameters will be initialized when the contract is created
 	// add in the variables we created above to have them initialized, as well
@@ -31,6 +33,7 @@ contract TCoin {
 		// check if the sender balance is greater than the value
 		if(balanceOf[msg.sender] < _value) throw; // throw exception and stop execution
 		// overflow is by adding the token amount, the value does not overflow the datatype
+		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
 		balanceOf[msg.sender] -= _value;
 		balanceOf[_to] += _value;
 	}

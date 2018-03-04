@@ -64,6 +64,14 @@ contract TCoin {
 }
 
 contract TCoinAdvanced is admined, TCoin{
+
+	// keep track of frozen accounts with a mapping
+	// use address as a key, then map a boolean to each address
+	mapping (address => bool) public frozenAccount;
+
+	// inform others about the address that has been frozen or unfrozen
+	event FrozenFund(address target, bool frozen);
+
 	// pass variables in the constructor in particular order
 	function TCoinAdvanced(uint256 initialSupply, string tokenName, string tokenSymbol, uint8 decimalUnits, address centralAdmin) TCoin (0, tokenName, tokenSymbol, decimalUnits){
 		totalSupply = initialSupply;
@@ -87,6 +95,36 @@ contract TCoinAdvanced is admined, TCoin{
 		// then, from the contract, notify the amount has been trasnferred to the target
 		Transfer(this, target, mintedAmount);
 	}
+
+	// create function for freezing
+	function freezeAccount(address target, bool freeze) onlyAdmin{
+		frozenAccount[target] = freeze;
+		FrozenFund(target, freeze); // freeze is like the status, a bool
+	}
+
+	// extend transfer()
+	function transfer(address _to, uint256 _value) {
+		if(frozenAccount[msg.sender]) throw; // if true (if is frozen), throw error
+		if(balanceOf[msg.sender] < _value) throw;
+		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
+		balanceOf[msg.sender] -= _value;
+		balanceOf[_to] += _value;
+ 		Transfer(msg.sender, _to, _value);
+	}
+
+	// extend transferFrom()
+	function transferFrom(address _from, address _to, uint _value) returns (bool success) {
+		if(frozenAccount[_from]) throw; // if true (if is frozen), throw error
+		if (balanceOf[_from] < _value) throw;
+		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
+		if (_value > allowance[_from][msg.sender]) throw;
+		balanceOf[_from] -= _value;
+		balanceOf[_to] += _value;
+		allowance[_from][msg.sender] -= _value;
+		Transfer(_from, _to, _value);
+		return true;
+	}
+
 }
 
 

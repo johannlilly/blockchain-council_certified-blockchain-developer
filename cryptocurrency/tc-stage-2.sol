@@ -1,7 +1,10 @@
 pragma solidity 0.4.8;
 contract TCoin {
-	mapping (address => uint256) public balanceOf; // show the balance, which is stored as uint256
+	mapping (address => uint256) public balanceOf;
+	// define a standard
+	string public standard = "TCoin v1.0";
 
+	// because this is a constructor, these parameters will be initialized when the contract is created
 	function TCoin(uint256 initialSupply) {
 		balanceOf[msg.sender] = initialSupply;
 	}

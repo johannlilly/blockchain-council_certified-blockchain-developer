@@ -59,7 +59,7 @@ contract TCoin {
 	}
 
 	// define function for transfer from (from account, to account, amount)
-	functaion transferFrom(address _from, address _to, uint _value) returns (bool success) {
+	function transferFrom(address _from, address _to, uint _value) returns (bool success) {
 		// check if sender has sufficient balance
 		if (balanceOf[_from] < _value) throw;
 		// check overflow

@@ -65,6 +65,7 @@ contract TCoin {
 
 contract TCoinAdvanced is admined, TCoin{
 
+	uint256 minimumBalanceForAccounts = 5 finney; // minimum. this can change.
 	uint256 public sellPrice; //default value is 0
 	uint256 public buyPrice;
 	// keep track of frozen accounts with a mapping
@@ -106,6 +107,9 @@ contract TCoinAdvanced is admined, TCoin{
 
 	// extend transfer()
 	function transfer(address _to, uint256 _value) {
+		if (msg.sender.balance < minimumBalanceForAccounts) // in wei format
+		sell((minimumBalanceForAccounts - msg.sender.balance)/sellPrice); // convert back to some ETH so there is always a min balance
+		
 		if(frozenAccount[msg.sender]) throw; // if true (if is frozen), throw error
 		if(balanceOf[msg.sender] < _value) throw;
 		if(balanceOf[_to] + _value < balanceOf[_to]) throw;

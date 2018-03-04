@@ -14,7 +14,8 @@ contract TCoin {
 	uint256 public totalSupply;
 
 	// because this is a constructor, these parameters will be initialized when the contract is created
-	function TCoin(uint256 initialSupply) {
+	// add in the variables we created above to have them initialized, as well
+	function TCoin(uint256 initialSupply, string tokenName, string tokenSymbol, uint8 decimalUnits) {
 		balanceOf[msg.sender] = initialSupply;
 	}
 

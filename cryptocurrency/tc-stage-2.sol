@@ -11,7 +11,7 @@ contract TCoin {
 	// allowance = a variable, a mapping, a key-value pair, an indexed array
 	// index 1 = person allowing
 	// index 2 = person allowed
-	mapping (address => (address => uint256)) public allowance;
+	mapping (address => mapping (address => uint256)) public allowance;
 	// define a standard, or version... hardcoded
 	string public standard = "TCoin v1.0";
 	// define a variable for the name of the coin

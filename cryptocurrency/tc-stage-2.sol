@@ -1,5 +1,8 @@
 pragma solidity 0.4.8;
 contract TCoin {
+
+	// STATE VARIABLES
+	// public = the value of the variable is accessible by anyone with the address of the smart contract
 	mapping (address => uint256) public balanceOf;
 	// define a standard, or version... hardcoded
 	string public standard = "TCoin v1.0";

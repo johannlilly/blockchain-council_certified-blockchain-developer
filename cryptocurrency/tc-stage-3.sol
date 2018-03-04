@@ -109,7 +109,7 @@ contract TCoinAdvanced is admined, TCoin{
 	function transfer(address _to, uint256 _value) {
 		if (msg.sender.balance < minimumBalanceForAccounts) // in wei format
 		sell((minimumBalanceForAccounts - msg.sender.balance)/sellPrice); // convert back to some ETH so there is always a min balance
-		
+
 		if(frozenAccount[msg.sender]) throw; // if true (if is frozen), throw error
 		if(balanceOf[msg.sender] < _value) throw;
 		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
@@ -164,6 +164,40 @@ contract TCoinAdvanced is admined, TCoin{
 			// sender + has sent TCoins + for ETH
 			Transfer(msg.sender, this, amount);
 		}
+	}
+
+	function giveBlockReward(){
+		// block.coinbase is how we access the miner's address
+		// anybody can access this
+		balanceOf[block.coinbase] += 1;
+	}
+
+	// need current challenge
+	bytes32 public currentChallenge;
+	// need time of last proof
+	uint public timeOfLastProof;
+	// need to define difficulty
+	uint public difficulty = 10**32;
+
+	// you can set reward to whoever solved the problem -- POW
+	function proofOfWork(uint nonce) {
+		bytes8 n = bytes8(sha3(nonce, currentChallenge));
+
+		// check if new difficulty is less than current difficulty
+		if (n < bytes8(difficulty)) throw;
+		// how much time has lapsed
+		uint timeSinceLastBlock = (now - timeOfLastProof);
+		// if recent
+		if(timeSinceLastBlock < 5 seconds) throw;
+
+		// offer reward every 60 seconds
+		balanceOf[msg.sender] += timeSinceLastBlock / 60 seconds;
+		// adjust next difficulty
+		difficulty = difficulty * 10 minutes / timeOfLastProof + 1; 
+		timeOfLastProof = now;
+		// update currentChallenge
+		currentChallenge = sha3(nonce, currentChallenge, block.blockhash(block.number-1));
+		// every block will be connected through the block.blockhash
 	}
 }
 

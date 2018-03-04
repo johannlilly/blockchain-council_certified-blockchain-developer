@@ -17,6 +17,7 @@ contract TCoin {
 	// add in the variables we created above to have them initialized, as well
 	function TCoin(uint256 initialSupply, string tokenName, string tokenSymbol, uint8 decimalUnits) {
 		balanceOf[msg.sender] = initialSupply;
+		totalSupply = initialSupply;
 	}
 
 	function transfer(address _to, uint256 _value) {

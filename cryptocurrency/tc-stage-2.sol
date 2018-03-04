@@ -4,6 +4,14 @@ contract TCoin {
 	// STATE VARIABLES
 	// public = the value of the variable is accessible by anyone with the address of the smart contract
 	mapping (address => uint256) public balanceOf;
+	// mapping within mapping
+	// the first address = sender's address
+	// the second address = address of person being authorized
+	// uint256 = number of TCoin the other person is allowed to execute or transfer
+	// allowance = a variable, a mapping, a key-value pair, an indexed array
+	// index 1 = person allowing
+	// index 2 = person allowed
+	mapping (address => (address => uint256)) public allowance
 	// define a standard, or version... hardcoded
 	string public standard = "TCoin v1.0";
 	// define a variable for the name of the coin
@@ -17,6 +25,7 @@ contract TCoin {
 	uint256 public totalSupply;
 	// define a variable so we can later notify participants in a transaction
 	event Transfer(address indexed from, address indexed to, uint256 value); // used "indexed" to store in log memory, not contract data
+	// keep record - for whom and how much
 
 	// because this is a constructor, these parameters will be initialized when the contract is created
 	// add in the variables we created above to have them initialized, as well

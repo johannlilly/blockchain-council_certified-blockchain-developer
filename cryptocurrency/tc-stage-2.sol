@@ -10,6 +10,8 @@ contract TCoin {
 	// define a variable for the max number of decimal points of the coin
 	// unsigned 8-bit integer (0 -> 255)
 	uint8 public decimal; // for Ethereum, it is 18
+	// define a variable for the total supply of coins that can be in existence
+	uint256 public totalSupply;
 
 	// because this is a constructor, these parameters will be initialized when the contract is created
 	function TCoin(uint256 initialSupply) {

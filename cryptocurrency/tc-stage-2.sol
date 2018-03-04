@@ -50,4 +50,11 @@ contract TCoin {
 		// this can also be used for debugging to check intermediate values of the smart contract paramter or state variables
 		Transfer(msg.sender, _to, _value)
 	}
+
+	// define function for approving the spender.
+	// configured to return a bool
+	function approve(address _spender, uint256 _value) returns (bool success) {
+		allowance[msg.sender][_spender] = _value;
+		return true;
+	}
 }

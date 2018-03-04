@@ -11,7 +11,7 @@ contract TCoin {
 	// allowance = a variable, a mapping, a key-value pair, an indexed array
 	// index 1 = person allowing
 	// index 2 = person allowed
-	mapping (address => (address => uint256)) public allowance
+	mapping (address => (address => uint256)) public allowance;
 	// define a standard, or version... hardcoded
 	string public standard = "TCoin v1.0";
 	// define a variable for the name of the coin
@@ -48,7 +48,7 @@ contract TCoin {
 		// call the event Transfer() function
 		// (who it is from, who it is to, how much)
 		// this can also be used for debugging to check intermediate values of the smart contract paramter or state variables
-		Transfer(msg.sender, _to, _value)
+		Transfer(msg.sender, _to, _value);
 	}
 
 	// define function for approving the spender.
@@ -59,7 +59,7 @@ contract TCoin {
 	}
 
 	// define function for transfer from (from account, to account, amount)
-	function transferFrom(address _from, address _to, uint _value) returns (bool success) {
+	functaion transferFrom(address _from, address _to, uint _value) returns (bool success) {
 		// check if sender has sufficient balance
 		if (balanceOf[_from] < _value) throw;
 		// check overflow

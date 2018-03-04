@@ -1,4 +1,24 @@
 pragma solidity 0.4.8;
+
+contract admined {
+	address public admin;
+
+	function admined() {
+		admin = msg.sender;
+	}
+
+	modifier = onlyAdmin(){
+		if(msg.sender != admin) throw;
+		_; // whenever this modifier is applied, the function will execute as it is
+	}
+
+	//transfer administratorship
+	function transferAdminship(address newAdmin){
+		admin = newAdmin;
+	}
+
+}
+
 contract TCoin {
 
 	mapping (address => uint256) public balanceOf;

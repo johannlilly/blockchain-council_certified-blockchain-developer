@@ -57,4 +57,22 @@ contract TCoin {
 		allowance[msg.sender][_spender] = _value;
 		return true;
 	}
+
+	// define function for transfer from (from account, to account, amount)
+	function transferFrom(address _from, address _to, uint _value) returns (bool success) {
+		// check if sender has sufficient balance
+		if (balanceOf[_from] < _value) throw;
+		// check overflow
+		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
+		// if person is not authorized to send this much value
+		if (_value > allowance[_from][msg.sender]) throw;
+		// compiler is ready for execution
+		balanceOf[_from] -= _value;
+		balanceOf[_to] += _value;
+		// reduced remaining spending limit
+		allowance[_from][msg.sender] -= _value;
+		// send event that transfer has occured
+		Transfer(_from, _to, _value);
+		return true;
+	}
 }

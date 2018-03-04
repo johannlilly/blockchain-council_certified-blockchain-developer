@@ -74,6 +74,19 @@ contract TCoinAdvanced is admined, TCoin{
 		balanceOf[admin] = initialSupply;
 		totalSupply = initialSupply;
 	}
+
+	// onlyAdmin is allowed to execute this function
+	function mintToken(address target, uint256 mintedAmount) onlyAdmin {
+		balanceOf[target] += mintedAmount;
+		totalSupply += mintedAmount;
+		// execute the event
+		// 0 = represents the source account
+		// this = represents smart contract address number
+		// mintedAmount = destination 
+		Transfer(0, this, mintedAmount);
+		// then, from the contract, notify the amount has been trasnferred to the target
+		Transfer(this, target, mintedAmount);
+	}
 }
 
 

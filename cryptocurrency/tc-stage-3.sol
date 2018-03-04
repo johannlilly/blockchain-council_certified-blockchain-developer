@@ -65,6 +65,8 @@ contract TCoin {
 
 contract TCoinAdvanced is admined, TCoin{
 
+	uint256 public sellPrice; //default value is 0
+	uint256 public buyPrice;
 	// keep track of frozen accounts with a mapping
 	// use address as a key, then map a boolean to each address
 	mapping (address => bool) public frozenAccount;
@@ -125,6 +127,40 @@ contract TCoinAdvanced is admined, TCoin{
 		return true;
 	}
 
+	// function to set prices
+	function setPrices(uint256 newSellPrice, uint256 newBuyPrice) onlyAdmin {
+		sellPrice = newSellPrice;
+		buyPrice = newBuyPrice;
+	}
+
+	// we want users to set how much they want to buy using the ETH they have
+	// remember, users can send ETH using buy()
+	// the smart contract must contain some TCoins for the exchange of ETH to take place to the buyer's account
+	function buy() payable { // we want people to send ETH using the payable method 
+		// convert
+		uint256 amount = (msg.value/(1 ether)) / buyPrice; // convert units properly. The smallest unit of ETH is called Wei, and is 1x10^-18 ETH, i.e.
+		// does the smart contract hold a balance above what is being requested?
+		if(balanceOf[this] < amount) throw;
+		balanceOf[msg.sender] += amount;
+		balanceOf[this] -= amount;
+		// announce
+		Transfer(this, msg.sender, amount);
+	}
+
+	function sell(uint256 amount){
+		// does seller have enough ETH?
+		if(balanceOf[msg.sender] < amount) throw;
+		balanceOf[msg.sender] -= amount;
+		// make sure sender receives ETH
+		// access address of sender, then add ETH
+		if(!msg.sender.send(amount * sellPrice * 1 ether)){ // The smallest unit of ETH is called Wei, and is 1x10^-18 ETH, i.e.
+			// throw reverts changes
+			throw;
+		} else {
+			// sender + has sent TCoins + for ETH
+			Transfer(msg.sender, this, amount);
+		}
+	}
 }
 
 

@@ -26,7 +26,10 @@ contract TCoin {
 		name = tokenName;
 	}
 
+	// add some checks before initiating a transfer
 	function transfer(address _to, uint256 _value) {
+		// check if the sender balance is greater than the value
+		if(balanceOf[msg.sender] < _value) throw; // throw exception and stop execution
 		balanceOf[msg.sender] -= _value;
 		balanceOf[_to] += _value;
 	}

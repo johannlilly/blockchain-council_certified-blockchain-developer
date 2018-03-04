@@ -16,7 +16,7 @@ contract TCoin {
 	// define a variable for the total supply of coins that can be in existence
 	uint256 public totalSupply;
 	// define a variable so we can later notify participants in a transaction
-	event Transfer(address indexed from, address indexed to, uint256 value); // store in log memory, not contract data
+	event Transfer(address indexed from, address indexed to, uint256 value); // used "indexed" to store in log memory, not contract data
 
 	// because this is a constructor, these parameters will be initialized when the contract is created
 	// add in the variables we created above to have them initialized, as well
@@ -36,5 +36,9 @@ contract TCoin {
 		if(balanceOf[_to] + _value < balanceOf[_to]) throw;
 		balanceOf[msg.sender] -= _value;
 		balanceOf[_to] += _value;
+		// call the event Transfer() function
+		// (who it is from, who it is to, how much)
+		// this can also be used for debugging to check intermediate values of the smart contract paramter or state variables
+		Transfer(msg.sender, _to, _value)
 	}
 }

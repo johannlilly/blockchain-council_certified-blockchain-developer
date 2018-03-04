@@ -30,6 +30,7 @@ contract TCoin {
 	function transfer(address _to, uint256 _value) {
 		// check if the sender balance is greater than the value
 		if(balanceOf[msg.sender] < _value) throw; // throw exception and stop execution
+		// overflow is by adding the token amount, the value does not overflow the datatype
 		balanceOf[msg.sender] -= _value;
 		balanceOf[_to] += _value;
 	}

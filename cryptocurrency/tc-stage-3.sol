@@ -64,7 +64,16 @@ contract TCoin {
 }
 
 contract TCoinAdvanced is admined, TCoin{
-
+	// pass variables in the constructor in particular order
+	function TCoinAdvanced(uint256 initialSupply, string tokenName, string tokenSymbol, uint8 decimalUnits, address centralAdmin) TCoin (0, tokenName, tokenSymbol, decimalUnits){
+		totalSupply = initialSupply;
+		if(centralAdmin != 0)
+			admin = centralAdmin;
+		else
+			admin = msg.sender;
+		balanceOf[admin] = initialSupply;
+		totalSupply = initialSupply;
+	}
 }
 
 
